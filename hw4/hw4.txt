@@ -1,0 +1,80 @@
+
+HW4 - Matthew Dragotto - 8044727221
+==============================================================
+
+-After running RSAT on the 3 color SAT instance of graph 1, 
+ RSAT output the following: 
+
+$ ./rsat_2.01_win.exe 3color-graph1.txt
+c Rsat version 2.01
+c
+c
+s UNSATISFIABLE
+c CNF stats: (21 vars, 64 clauses)
+c Decisions: 12
+c Conflicts: 10
+c Running time: 0.00000 seconds
+
+-As can be seen, graph1 is not satisfiable with 3 colors.
+
+==============================================================
+
+-We now repeat with 4 colors.
+
+$ ./rsat_2.01_win.exe 4color-graph1.txt
+c Rsat version 2.01
+c
+c
+s SATISFIABLE
+c CNF stats: (28 vars, 97 clauses)
+c Decisions: 11
+c Conflicts: 0
+c Running time: 0.00000 seconds
+
+-Graph 3 can be satisfied with 4 colors.
+
+============================================================== 
+
+-These results tell us that the graph above (in pdf) can be 
+ satisfied with 4 colors. One solution is the following:
+
+edge| color
+----|--------
+1   | Red		
+2   | Green
+3   | Blue
+4   | Red
+5   | Blue
+6   | Green
+7   | Yellow
+
+============================================================== 
+
+-Using a similar approach of trying more and more colors, we
+ are able to determine that graph 2 is satisfiable using 8 
+ colors.
+
+-with 7 colors:
+$ ./rsat_2.01_win.exe 7color-graph2.txt
+c Rsat version 2.01
+c
+c
+s UNSATISFIABLE
+c CNF stats: (350 vars, 4985 clauses)
+c Decisions: 3800
+c Conflicts: 3186
+c Running time: 0.04400 seconds
+
+
+-with 8 colors:
+$ ./rsat_2.01_win.exe 8color-graph2.txt
+c Rsat version 2.01
+c
+c
+s SATISFIABLE
+c CNF stats: (400 vars, 5890 clauses)
+c Decisions: 941
+c Conflicts: 557
+c Running time: 0.00900 seconds
+
+-therefore it takes a minimum of 8 colors to solve.

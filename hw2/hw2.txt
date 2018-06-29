@@ -1,0 +1,81 @@
+Matt Dragotto - 804472271
+
+1.) 
+
+> (BFS '(ROOT))
+(ROOT)
+> (BFS '((((L E) F) T)))
+(T F L E)
+> (BFS '((R (I (G (H T))))))
+(R I G H T)
+> (BFS '(((A (B)) C (D))))
+(C A D B)
+> (BFS '((T (H R E) E)))
+(T E H R E)
+> (BFS '((A ((C ((E) D)) B))))
+(A B C D E)
+
+
+2.)
+
+FINAL-STATE
+========================================
+> (FINAL-STATE '(NIL NIL NIL NIL))
+NIL
+> (FINAL-STATE '(T T T T))
+T
+> (FINAL-STATE '(T T T NIL))
+NIL
+
+
+
+NEXT-STATE
+========================================
+> (FINAL-STATE '(NIL NIL NIL NIL))
+NIL
+> (FINAL-STATE '(T T T T))
+T
+> (FINAL-STATE '(T T T NIL))
+NIL
+> (NEXT-STATE '(NIL NIL NIL NIL) 'h)
+NIL
+> (NEXT-STATE '(NIL NIL T T) 'h)
+((T NIL T T))
+> (NEXT-STATE '(NIL NIL T T) 'b)
+((T T T T))
+> (NEXT-STATE '(T NIL T T) 'b)
+NIL
+> (NEXT-STATE '(NIL NIL NIL NIL) 'd)
+NIL
+> (NEXT-STATE '(NIL NIL T NIL) 'd)
+NIL
+> (NEXT-STATE '(NIL NIL NIL NIL) 'p)
+NIL
+> (NEXT-STATE '(T NIL NIL NIL) 'p)
+NIL
+
+
+
+SUCC-FN
+========================================
+> (SUCC-FN '(NIL NIL NIL NIL))
+((T T NIL NIL))
+> (SUCC-FN '(NIL T NIL NIL))
+((T T T NIL) (T T NIL T))
+
+
+
+ON-PATH
+========================================
+> (ON-PATH '(NIL T NIL NIL) '((NIL NIL NIL NIL) (T T NIL NIL) (NIL T NIL NIL)))
+T
+> (ON-PATH '(NIL T T NIL) '((NIL NIL NIL NIL) (T T NIL NIL) (NIL T NIL NIL)))
+NIL
+
+
+
+DFS
+========================================
+> (DFS '(NIL NIL NIL NIL) NIL)
+NIL
+***NOTE: DFS does not work as intended. No valid path is returned. I believe there is a bug in NEXT-STATE***

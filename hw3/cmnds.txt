@@ -1,0 +1,6 @@
+(load "C:/Users/Matt\ Dragotto/Desktop/161/hw3/a-star.lsp")
+(load "D:/Downloads/soln.lsp")
+
+(a* p1 #'goal-test #'next-states #'h0)
+
+(printstates (a* p1 #'goal-test #'next-states #'h0) 0.2)
